@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main>
       <Navbar />
-      {/* <Chart /> */}
+      <Chart />
       <Chart2 />
     </main>
   );

@@ -37,7 +37,7 @@ function Navbar() {
     setNav(false);
   };
   return (
-    <div className=" relative">
+    <div className="sticky top-0 z-50">
       <div className=" w-[100%] h-[12vh] bg-[#141c27] shadow-md">
         <div className=" flex h-full justify-between items-center mx-auto w-[90%]">
           <div className=" flex items-center justify-between w-full  h-[100%] mx-auto text-white">
@@ -62,7 +62,7 @@ function Navbar() {
       <div
         className={`${
           nav ? "translate-x-0" : "translate-x-[100%]"
-        } fixed transition-all transform ease-in-out duration-500 top-0 right-0 bottom-0 w-[80vw] h-[100vh]`}
+        } fixed transition-all transform ease-in-out duration-500 top-0 right-0 bottom-0 w-[80vw] h-[100vh] block md:hidden`}
       >
         <ul className=" flex flex-col p-12 bg-[#141c27] h-full gap-4 z-50">
           {navItem.map((item) => (

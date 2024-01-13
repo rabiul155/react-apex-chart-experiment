@@ -146,7 +146,7 @@ function Chart() {
   };
 
   return (
-    <div className=" flex justify-between p-10">
+    <div className=" flex flex-col justify-between p-10">
       <ReactApexChart
         options={pie.options}
         series={pie.series}
