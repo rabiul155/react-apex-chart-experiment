@@ -1,8 +1,8 @@
 "use client";
-
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
 import React, { useState } from "react";
+import Button from "./shared/Button";
 
 type NavItem = {
   nav: string;
@@ -30,6 +30,7 @@ function Navbar() {
   ];
 
   const [nav, setNav] = useState(false);
+
   const openNav = () => {
     setNav(true);
   };
@@ -53,9 +54,9 @@ function Navbar() {
               ))}
             </ul>
           </div>
-          <button onClick={openNav}>
+          <Button onClickEvent={openNav}>
             <Bars3Icon className="h-6 w-6 text-white cursor-pointer md:hidden" />
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -71,9 +72,9 @@ function Navbar() {
             </li>
           ))}
         </ul>
-        <button onClick={closeNav}>
+        <Button onClickEvent={closeNav}>
           <XMarkIcon className=" h-6 w-6 text-white font-semibold absolute top-[2rem] right-[2rem] " />
-        </button>
+        </Button>
       </div>
     </div>
   );

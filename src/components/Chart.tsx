@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
 type TCurve =
@@ -81,6 +81,11 @@ interface PieChart {
 }
 
 function Chart() {
+  const [client, setClient] = useState<boolean>(false);
+
+  useEffect(() => {
+    setClient(true);
+  }, []);
   const state: ChartState = {
     series: [
       {
@@ -145,23 +150,27 @@ function Chart() {
     },
   };
 
-  return (
-    <div className=" flex flex-col justify-between p-10">
-      <ReactApexChart
-        options={pie.options}
-        series={pie.series}
-        type="donut"
-        width={600}
-      />
-      <ReactApexChart
-        options={state.options}
-        series={state.series}
-        type="area"
-        width={800}
-        height={500}
-      />
-    </div>
-  );
+  if (client) {
+    return (
+      <div className=" flex flex-col justify-between p-10">
+        <ReactApexChart
+          options={pie.options}
+          series={pie.series}
+          type="donut"
+          width={600}
+        />
+        <ReactApexChart
+          options={state.options}
+          series={state.series}
+          type="area"
+          width={800}
+          height={500}
+        />
+      </div>
+    );
+  } else {
+    return <div>Chart Loading....</div>;
+  }
 }
 
 export default Chart;
